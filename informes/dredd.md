@@ -1,31 +1,72 @@
-Los tests no se generaron en build/reports/dredd.md, así que con STDOUT & STDERR generé este archivo.
-Únicamente aparecen los `.html` .
+# El juez Dredd
+
+## Checkstyle código
+
+## Checkstyle Report - Dredd
+**Version checkstyle:** 10.21.4
+### Archivos procesados
+    
+#### Archivo: src/main/java/ar/unrn/DesordenadoApp.java
+| tipo | mensaje | línea |
+|:----:|:-------:|-------|
+|error|[0x1001] Falta documentación Javadoc para el atributo|4|
+|error|[0x1001] Falta documentación Javadoc para el método|6|
+|error|[0x1001] Falta documentación Javadoc para el método|13|
+
+#### Archivo: src/main/java/ar/unrn/PlantillaApp.java
+##### Archivo OK.
+    
+#### Archivo: src/main/java/ar/unrn/HolaApp.java
+| tipo | mensaje | línea |
+|:----:|:-------:|-------|
+|error|[0x1001] Falta documentación Javadoc para el método|7|
+
+#### Archivo: src/main/java/ar/unrn/LoaderApp.java
+##### Archivo OK.
+    
+## PMD código
+
+## PMD
+    
+### Archivo src/main/java/ar/unrn/DesordenadoApp.java
+#### CommentRequired de Documentation en la línea 13
+ - Descripción:  Public method and constructor comments are required 
+ - Encontrado en: package: `ar.unrn`, clase: `DesordenadoApp` método: `suma` variable: ``
+ [+Información](https://docs.pmd-code.org/pmd-doc-7.16.0/pmd_rules_java_documentation.html#commentrequired)
  
-> Task :compileJava UP-TO-DATE
-> Task :processResources NO-SOURCE
-> Task :classes UP-TO-DATE
-> Task :compileTestJava UP-TO-DATE
-> Task :processTestResources NO-SOURCE
-> Task :testClasses UP-TO-DATE
-> Task :checkstyleTest UP-TO-DATE
+  
+### Archivo src/main/java/ar/unrn/LoaderApp.java
+#### CommentDefaultAccessModifier de Code Style en la línea 35
+ - Descripción:  Missing commented default access modifier on method 'main(String[])' 
+ - Encontrado en: package: `ar.unrn`, clase: `LoaderApp` método: `main` variable: ``
+ [+Información](https://docs.pmd-code.org/pmd-doc-7.16.0/pmd_rules_java_codestyle.html#commentdefaultaccessmodifier)
+ 
+  
+#### UseVarargs de Best Practices en la línea 35
+ - Descripción:  Consider using varargs for methods or constructors which take an array the last parameter. 
+ - Encontrado en: package: `ar.unrn`, clase: `LoaderApp` método: `main` variable: `args`
+ [+Información](https://docs.pmd-code.org/pmd-doc-7.16.0/pmd_rules_java_bestpractices.html#usevarargs)
+ 
+  
+#### LocalVariableNamingConventions de Code Style en la línea 118
+ - Descripción:  The final local variable name 'EXTENSION' doesn't match '[a-z][a-zA-Z0-9]*' 
+ - Encontrado en: package: `ar.unrn`, clase: `LoaderApp` método: `findClasses` variable: `EXTENSION`
+ [+Información](https://docs.pmd-code.org/pmd-doc-7.16.0/pmd_rules_java_codestyle.html#localvariablenamingconventions)
+ 
+  
+## SpotBugs
+| Tipo | Categoría | Clase | Mensaje |
+|:----:|:---------:|:-----:|:--------|
+|VA_FORMAT_STRING_USES_NEWLINE|BAD_PRACTICE|ar.unrn.HolaApp|Format string should use %n rather than \n in ar.unrn.HolaApp.main(String[])|
 
-> Task :test FAILED
+## Cobertura de código (JaCoCo)
+No se encontró el reporte de cobertura.
 
-Probando los tests > Dos mas cuatro PASSED
+## Conan ejecuta los Tests
 
-Probando los tests > Este falla a proposito FAILED
-    org.opentest4j.AssertionFailedError: Esto tiene sus usos!
-        at app//org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
-        at app//org.junit.jupiter.api.Assertions.fail(Assertions.java:138)
-        at app//ar.unrn.DesordenadoAppTest.falla(DesordenadoAppTest.java:21)
+        
+### Probando los tests
+Total de tests: 2. De los cuales, fallos en: 1, errores en: 0
+- Dos mas cuatro (en 0.016 segundos): Pasó
+- Este falla a proposito (en 0.007 segundos): Falló
 
-> Task :checkstyleMain FAILED
-
-[Incubating] Problems report is available at: file:///home/milkotiz/dev/p2/tp1-2026-lampertizi/build/reports/problems/problems-report.html
-
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
-
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
-5 actionable tasks: 2 executed, 3 up-to-date
